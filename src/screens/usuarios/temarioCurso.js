@@ -29,20 +29,32 @@ class temarioCurso extends Component {
     Temario(item, index) {
         if (item.completed === false) {
             return (
-                <View style={{height: 30, backgroundColor:'#EDEBEB', justifyContent: 'center', paddingHorizontal: 15}}>
-                    <Text>{item.title}</Text>
+                <View style={{ flexDirection: 'row', alignItems: 'center', justifyContent: 'space-between', height: 55, borderBottomWidth: 1, borderBottomColor: '#D9D8D8', paddingLeft: 12, paddingRight: 30, backgroundColor: '#F4F2F2', }}>
+                    <View style={{ width: '80%' }}>
+                        <Text numberOfLines={2}>{item.title}</Text>
+                    </View>
+                    <View style={{ width: '20%' }}>
+                        <Icon name='window-maximize' type='font-awesome' color='#ff5a06' />
+                    </View>
                 </View>
             )
 
         } else {
             return (
-                <TouchableOpacity>
-                    <View>
-                        <Text>temario</Text>
+                <TouchableOpacity style={styles.touchTemario1}>
+                    <View style={{ width: '10%', paddingLeft: 5 }} >
+                        <View style={{backgroundColor:'#ff5a06', paddingVertical: 6, borderRadius:28}}>
+                            <Icon name='play' type='font-awesome' color='#ff5a06' size={15} color='white' />
+                        </View>
+                    </View>
+                    <View style={{ width: '70%', paddingLeft: 15 }}>
+                        <Text numberOfLines={1}>{item.title}</Text>
+                    </View>
+                    <View style={{ width: '20%' }}>
+                        <Icon name='chevron-right' type='evilicon' color='#ff5a06' />
                     </View>
 
                 </TouchableOpacity>
-
             )
         }
 
@@ -98,5 +110,14 @@ const styles = StyleSheet.create({
         paddingRight: 10,
         backgroundColor: '#ff5a06',
         paddingVertical: 5
+    },
+    touchTemario1: {
+        flexDirection: 'row',
+        height: 55,
+        alignItems: 'center',
+        paddingLeft: 12,
+        paddingRight: 30,
+        borderBottomWidth: 1, 
+        borderBottomColor: '#D9D8D8'
     }
 })
